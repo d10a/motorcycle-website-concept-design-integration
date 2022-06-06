@@ -39,8 +39,10 @@ onMounted(() => {
         <source srcset="/src/assets/img/bike.jpg" media="(min-width: 800px)">
         <img src="/src/assets/img/bike.jpg" alt="" />
       </picture>
-      <div id="bike-details">
 
+      <div id="bike-wheel">vdvf</div>
+
+      <div id="bike-details">
         <div class="bike-info-container">
           <h4>TOP SPEED</h4>
           <div class="informations">
@@ -50,33 +52,37 @@ onMounted(() => {
           </div>
         </div>
         <div class="bike-info-container">
-          <h4>TOP SPEED</h4>
+          <h4>POWER</h4>
           <div class="informations">
-            <p class="info-title">6-SPEED CONSTANT-MESH</p>
-            <p class="info-value">169 MPH</p>
-            <p class="info-converted-value">272 KM/H</p>
+            <p class="info-title">121 KW</p>
+            <p class="info-value">162 HP</p>
+            <p class="info-converted-value">9,25 RPM</p>
           </div>
         </div>
         <div class="bike-info-container">
-          <h4>TOP SPEED</h4>
+          <h4>TORQUE</h4>
           <div class="informations">
-            <p class="info-title">6-SPEED CONSTANT-MESH</p>
-            <p class="info-value">169 MPH</p>
-            <p class="info-converted-value">272 KM/H</p>
+            <p class="info-title">8,800 RPM</p>
+            <p class="info-value">130.5 N.M</p>
+            <p class="info-converted-value">96.6 LBF.FT</p>
           </div>
         </div>
         <div class="bike-info-container">
-          <h4>TOP SPEED</h4>
+          <h4>FUEL CAPACITY</h4>
           <div class="informations">
-            <p class="info-title">6-SPEED CONSTANT-MESH</p>
-            <p class="info-value">169 MPH</p>
-            <p class="info-converted-value">272 KM/H</p>
+            <p class="info-title">4.5 US GAL</p>
+            <p class="info-value">17 L</p>
+            <p class="info-converted-value">3.7 IMP GAL</p>
           </div>
         </div>
       </div>
       <SvgImage data="src/assets/img/montblanc_motorcycle_circle.svg" id="mont_blanc_logo" />
       <SvgImage data="src/assets/img/asian-text.svg" class="asian-text" id="asian-text-01" />
       <SvgImage data="src/assets/img/asian-text.svg" class="asian-text" id="asian-text-02" />
+
+      <p id="bike-text-summary">The bike comes in all black, with a relatively modern appeal. Chrome accents in just
+        the right places make the bike stand out, while the black-on-black satin text on the bike’s fork-guards helps
+        highlight the company’s branding without being too direct or obvious.</p>
     </main>
   </div>
 </template>
@@ -87,6 +93,8 @@ onMounted(() => {
 @function autoSizing($size, $coeffReducer: 0.8) {
   @return string.unquote("calc(#{$size}px * #{$coeffReducer})");
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 img {
   width: 100%;
@@ -152,12 +160,24 @@ img {
     width: autoSizing(1200);
     height: autoSizing(813);
     position: absolute;
-    animation: bikeSlideLeft 1000ms ease-in-out forwards;
+    animation: bikeSlideLeft 1500ms ease-out forwards;
+  }
+
+  #bike-wheel {
+    width: autoSizing(316);
+    height: autoSizing(658);
+    background-image: url('../assets/img/bike_wheel.jpg');
+    z-index: 0;
+    position: absolute;
+    top: autoSizing(100);
+    right: autoSizing(220);
+    background-color: red;
+    animation: bikeWheelSlideLeft 500ms ease-out;
   }
 
   #bike-details {
     width: autoSizing(353);
-    height: autoSizing(749);
+    height: 100%;
     position: absolute;
     z-index: 4;
     bottom: 0;
@@ -165,6 +185,7 @@ img {
     background-color: #060507;
     border-bottom-right-radius: 32px;
     padding: autoSizing(40);
+    padding-top: 20%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
@@ -173,7 +194,7 @@ img {
       margin-bottom: 2px;
       display: flex;
       flex-flow: row nowrap;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       height: autoSizing(148);
       color: #ffffff;
@@ -181,19 +202,19 @@ img {
       animation: fadeIn 500ms ease-in forwards;
 
       &:nth-child(1) {
-        animation-delay: 200ms;
-      }
-
-      &:nth-child(2) {
         animation-delay: 400ms;
       }
 
+      &:nth-child(2) {
+        animation-delay: 800ms;
+      }
+
       &:nth-child(3) {
-        animation-delay: 600ms;
+        animation-delay: 1200ms;
       }
 
       &:nth-child(4) {
-        animation-delay: 800ms;
+        animation-delay: 1600ms;
       }
 
       h4 {
@@ -201,10 +222,11 @@ img {
         height: 100%;
         writing-mode: vertical-lr;
         text-orientation: mixed;
-        font-size: 18px;
+        font-size: autoSizing(18);
         font-weight: 100;
         color: #3F3E44;
-        margin: 0;
+        margin: 0 18px 0 0;
+        text-align: center;
       }
 
       .informations {
@@ -219,14 +241,15 @@ img {
         }
 
         .info-title {
-          font-size: 12px;
+          font-size: autoSizing(12);
           font-weight: 100;
           text-transform: uppercase;
+          font-family: 'Montserrat', sans-serif;
         }
 
         .info-value {
-          font-size: 32px;
-          font-weight: 500;
+          font-size: autoSizing(32);
+          font-weight: 700;
           text-transform: uppercase;
         }
 
@@ -234,6 +257,7 @@ img {
           font-size: 12px;
           font-weight: 100;
           text-transform: uppercase;
+          font-family: 'Montserrat', sans-serif;
         }
       }
 
@@ -248,7 +272,7 @@ img {
     left: autoSizing(990);
     top: autoSizing(214);
     opacity: 0;
-    animation: montblancLogoRotate 1500ms ease-in-out 1500ms forwards;
+    animation: montblancLogoRotate 1500ms ease-in-out 2500ms forwards;
   }
 
   .asian-text {
@@ -258,6 +282,17 @@ img {
     width: autoSizing(822);
     height: autoSizing(150);
     transform-origin: left bottom;
+  }
+
+  #bike-text-summary {
+    width: autoSizing(406);
+    font-size: autoSizing(12);
+    position: absolute;
+    bottom: 50px;
+    left: autoSizing(590);
+    color: #ffffff;
+    opacity: 0;
+    animation: displaySummary 2000ms linear 1s forwards;
   }
 
   #asian-text-01 {
@@ -270,6 +305,27 @@ img {
     animation: asianTextSlideLeft 800ms ease-in-out 500ms forwards;
   }
 
+
+}
+
+@keyframes bikeWheelSlideLeft {
+  0% {
+    transform: translateX(100px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes displaySummary {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 
 }
 
@@ -294,26 +350,18 @@ img {
 
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) rotate(20);
   }
 }
 
 @keyframes bikeSlideLeft {
   0% {
-    transform: translateX(-80px);
+    transform: scale(0.4);
     opacity: 0;
   }
 
-  60% {
-    transform: rotate(2deg);
-  }
-
-  80% {
-    transform: rotate(0deg);
-  }
-
   100% {
-    transform: translateX(10px);
+    transform: scale(1);
   }
 }
 

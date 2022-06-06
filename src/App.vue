@@ -25,12 +25,18 @@ html {
 
 body {
   min-height: 100vh;
-  background: #060507;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-content: center;
   align-items: center;
+
+  background:
+    url('assets/img/gold_background.jpg') left bottom no-repeat,
+    url('assets/img/gold_background.jpg') right top no-repeat;
+  background-size: 70%, 30%;
+  background-color: #060507;
+
 }
 
 html,
