@@ -13,17 +13,8 @@ onMounted(() => {
 
 <template>
   <div id="app-container">
-    <figure id="audio-container">
-      <figcaption>Listen to the T-Rex:</figcaption>
-      <audio controls webkit-playsinline="true" autoplay="true"
-        src="src/assets/audio/salamisound-6180044-start-kawasaki-z800-play.mp3" type="audio/mpeg">
-        Your browser does not support the
-        <code>audio</code> element.
-      </audio>
-    </figure>
-
     <header>
-      <SvgImage data="/src/assets/img/logo_montblanc.svg" id="logo" />
+      <SvgImage data="/assets/img/logo_montblanc.svg" id="logo" />
       <nav>
         <ul>
           <li><a href="#" title="">Bikes</a></li>
@@ -36,8 +27,8 @@ onMounted(() => {
 
     <main>
       <picture id="bike-container">
-        <source srcset="/src/assets/img/bike.jpg" media="(min-width: 800px)">
-        <img src="/src/assets/img/bike.jpg" alt="" />
+        <source srcset="/assets/img/bike.jpg" media="(min-width: 800px)">
+        <img src="/assets/img/bike.jpg" alt="" />
       </picture>
 
       <div id="bike-wheel">vdvf</div>
@@ -76,9 +67,9 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <SvgImage data="src/assets/img/montblanc_motorcycle_circle.svg" id="mont_blanc_logo" />
-      <SvgImage data="src/assets/img/asian-text.svg" class="asian-text" id="asian-text-01" />
-      <SvgImage data="src/assets/img/asian-text.svg" class="asian-text" id="asian-text-02" />
+      <SvgImage data="assets/img/montblanc_motorcycle_circle.svg" id="mont_blanc_logo" />
+      <SvgImage data="assets/img/asian-text.svg" class="asian-text" id="asian-text-01" />
+      <SvgImage data="assets/img/asian-text.svg" class="asian-text" id="asian-text-02" />
 
       <p id="bike-text-summary">The bike comes in all black, with a relatively modern appeal. Chrome accents in just
         the right places make the bike stand out, while the black-on-black satin text on the bike’s fork-guards helps
@@ -90,7 +81,7 @@ onMounted(() => {
 <style scoped lang="scss">
 @use "sass:string";
 
-@function autoSizing($size, $coeffReducer: 0.8) {
+@function autoSizing($size, $coeffReducer: 0.7) {
   @return string.unquote("calc(#{$size}px * #{$coeffReducer})");
 }
 
@@ -184,6 +175,7 @@ img {
     right: 0;
     background-color: #060507;
     border-bottom-right-radius: 32px;
+    border-top-right-radius: 32px;
     padding: autoSizing(40);
     padding-top: 20%;
     display: flex;
