@@ -23,7 +23,7 @@ onMounted(() => {
     </figure>
 
     <header>
-      <SvgImage data="src/assets/img/logo_montblanc.svg" id="logo" />
+      <SvgImage data="/src/assets/img/logo_montblanc.svg" id="logo" />
       <nav>
         <ul>
           <li><a href="#" title="">Bikes</a></li>
